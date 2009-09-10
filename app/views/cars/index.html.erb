@@ -1,0 +1,42 @@
+<h1>Cars</h1>
+
+<div class="actions">
+  <%= link_to 'Add new', new_car_path %>
+</div>
+
+<% unless @cars.blank? %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Company</th>
+      <th>Speed</th>
+      <th>Beauty</th>
+      <th>Price</th>
+      <th>Options</th>
+    </tr>
+  <% for car in @cars %>
+    <tr>
+      <td><%=h car.name %></td>
+      <td><%=h car.company %></td>
+      <td>
+        <%= ratings_for car, :dimension => :speed, :small_stars => true %>
+      </td>
+      <td>
+        <%= ratings_for car, :dimension => :beauty, :small_stars => true %>
+      </td>
+      <td>
+        <%= ratings_for car, :dimension => :price, :small_stars => true %>
+      </td>
+      <td>
+        <%= link_to 'View', car %>
+        -
+        <%= link_to 'Edit', edit_car_url(car) %>
+        -
+        <%= link_to 'Delete', car, :method => :delete, :confirm => "Are you sure?" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <h3>There are no cars.</h3>
+<% end %>

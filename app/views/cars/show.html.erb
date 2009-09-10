@@ -1,0 +1,22 @@
+<h1><%=h @car.name %></h1>
+<%= link_to 'Back to list', cars_url %>
+
+<p>
+  <strong>Company:</strong>
+  <%=h @car.company %>
+</p>
+
+<p>
+  Speed:
+  <%= ratings_for @car, :dimension => :speed %>
+</p>
+
+<p>
+  Beauty:
+  <%= ratings_for @car, :dimension => :beauty %>
+</p>
+
+<p>
+  Price:
+  <%= ratings_for @car, :dimension => :price %>
+</p>

@@ -1,0 +1,10 @@
+<h1>Editing a car</h1>
+
+<% form_for @car do |f| %>
+  <%= render f %>
+  <p>
+    <%= f.submit "Save" %>
+    or
+    <%= link_to 'Cancel', cars_url %>
+  </p>
+<% end %>
